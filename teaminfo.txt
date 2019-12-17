@@ -1,0 +1,5 @@
+NAME				    Sec		BN
+Ahmed Salah				1		5
+Muhammad AbdulKariim	2		20
+Maryam Shalaby			2		24
+Mai Mahmoud				2		25

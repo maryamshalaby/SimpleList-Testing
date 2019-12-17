@@ -1,0 +1,4 @@
+cd unit\ tests/
+g++ includes/main.cpp -c 
+g++ -o test.exe main.o  *.cpp
+./test.exe 
