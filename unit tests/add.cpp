@@ -111,14 +111,23 @@ TEST_CASE("insert at empty list", "[myLinkedList]")
 // Failed to sort inserted element
 TEST_CASE("insert at nonempty list", "[myLinkedList]")
 {
-    SimpleList<int> *myLinkedList = new SimpleList<int>();
+    // SimpleList<int> *myLinkedList = new SimpleList<int>();
+    SimpleList<int> *myLinkedList = new SimpleList<int>([](int &a, int &b) -> int {
+        if (a < b)
+            return -1;
+        if (a == b)
+            return 0;
+        if (a > b)
+            return 1;
+    });
     myLinkedList->insert(2);
-    REQUIRE(myLinkedList->getLast() == 2);
+    REQUIRE(myLinkedList->getFirst() == 2);
     myLinkedList->insert(6);
     REQUIRE(myLinkedList->getLast() == 6);
     myLinkedList->insert(4);
-    REQUIRE(myLinkedList->getLast() == 6);
-    myLinkedList->insert(5);
+    REQUIRE(myLinkedList->get(0) == 2);
+    REQUIRE(myLinkedList->get(1) == 4);
+    REQUIRE(myLinkedList->get(2) == 6);
     REQUIRE(myLinkedList->getLast() == 6);
 }
 
