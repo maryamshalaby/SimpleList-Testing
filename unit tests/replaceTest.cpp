@@ -24,7 +24,7 @@ TEST_CASE( "replace(int index, T obj): Empty List", "[tags]" ) {
     }
     SECTION( "Replace NULL index" ){
       // Try to remove L[NULL] = --
-        L.replace(NULL, 2);
+        L.replace(int(), 2);
       // Now List is []
          REQUIRE(L.size() == 0);
     }
@@ -65,7 +65,7 @@ TEST_CASE( "replace(int index, T obj): List with 1 element", "[tags]" ) {
 
      SECTION( "Replace NULL index" ){
       // Try to remove L[NULL] = --
-        L.replace(NULL, 2);
+        L.replace(int(), 2);
       // Now List is [11]
          REQUIRE(L.size() == 1);
          REQUIRE(L.get(0) == 11);
@@ -143,7 +143,7 @@ TEST_CASE( "replace(int index, T obj): List with multiple elements", "[tags]" ) 
 
       SECTION( "Replace NULL index" ){
       // Try to remove L[NULL] = --
-        L.replace(NULL, 2);
+        L.replace(int(), 2);
       // Now List is [11,-2,3,1]
          REQUIRE(L.size() == 4);
          REQUIRE(L.get(0) == 11);

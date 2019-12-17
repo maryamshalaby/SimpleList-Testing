@@ -38,13 +38,13 @@ TEST_CASE( "swap(int x, int y): Empty List", "[!mayfail]" ) {
     }
     SECTION( "Swap NULL x index " ){
 
-        L.swap(NULL, 0);
+        L.swap(int(), 0);
       // Now List is []
          REQUIRE(L.size() == 0);
     }
    SECTION( "Swap NULL y index " ){
        
-        L.swap(0, NULL);
+        L.swap(0, int());
       // Now List is []
          REQUIRE(L.size() == 0);
     }
@@ -117,14 +117,14 @@ TEST_CASE( "swap(int x, int y): List with 1 element", "[tags]" ) {
 
    // SECTION( "Swap NULL x index " ){
 
-   //      L.swap(NULL, 2);
+   //      L.swap(int(), 2);
    //    // Now List is []
    //       REQUIRE(L.size() == 1);
    //       REQUIRE(L.get(0) == 11);
    //  }
    // SECTION( "Swap NULL y index " ){
        
-   //      L.swap(2, NULL);
+   //      L.swap(2, int());
    //    // Now List is []
    //       REQUIRE(L.size() == 1);
    //       REQUIRE(L.get(0) == 11);
@@ -297,7 +297,7 @@ TEST_CASE( "swap(int x, int y): List with multiple elements", "[tags]" ) {
     
    SECTION( "Swap NULL x index " ){
 
-        L.swap(NULL, 2);
+        L.swap(int(), 2);
     // Now List is [11, -2, 3, 1]
          REQUIRE(L.size() == 4);
          REQUIRE(L.get(0) == 11);
@@ -307,7 +307,7 @@ TEST_CASE( "swap(int x, int y): List with multiple elements", "[tags]" ) {
    }
    SECTION( "Swap NULL y index " ){
        
-        L.swap(2, NULL);
+        L.swap(2, int());
        // Now List is [11, -2, 3, 1]
          REQUIRE(L.size() == 4);
          REQUIRE(L.get(0) == 11);

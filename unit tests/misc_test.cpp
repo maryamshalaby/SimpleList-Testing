@@ -1,6 +1,5 @@
 #include "includes/catch.hpp"
 #include "../src/SimpleList.h"
-#include <iostream>
 
 ////////////SIZE//////////////
 

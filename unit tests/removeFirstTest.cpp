@@ -3,7 +3,7 @@
 
 // These tests is for "void removeFirst()" that removes element at the beginning of the List
 // Test 1
-TEST_CASE( "removeFirst(): Empty List", "[tags]" ) {
+TEST_CASE( "removeFirst(): Empty List", " " ) {
 
    // Now List is []
    SimpleList<int> L;
