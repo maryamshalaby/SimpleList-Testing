@@ -1,0 +1,12 @@
+[0;37madd.cpp:60:[0m[1;31m failed[0m: myLinkedList->isSorted() == true[0;37m for: [0mfalse == true
+[0;37madd.cpp:77:[0m[1;31m failed[0m: myLinkedList->getLast() == 8[0;37m for: [0m0 == 8
+[0;37madd.cpp:88:[0m[1;31m failed[0m: myLinkedList->isSorted() == 1[0;37m for: [0mfalse == 1
+[0;37madd.cpp:120:[0m[1;31m failed[0m: myLinkedList->getLast() == 6[0;37m for: [0m4 == 6
+[0;37mremoveTest.cpp:68:[0m[1;31m failed[0m: L.size() == 1[0;37m for: [0m0 == 1
+[0;37mremoveTest.cpp:143:[0m[1;31m failed[0m: L.size() == 4[0;37m for: [0m3 == 4
+[0;37mreplaceTest.cpp:71:[0m[1;31m failed[0m: L.get(0) == 11[0;37m for: [0m2 == 11
+[0;37mreplaceTest.cpp:149:[0m[1;31m failed[0m: L.get(0) == 11[0;37m for: [0m2 == 11
+[0;37mswapTest.cpp:303:[0m[1;31m failed[0m: L.get(0) == 11[0;37m for: [0m3 == 11
+[0;37mswapTest.cpp:313:[0m[1;31m failed[0m: L.get(0) == 11[0;37m for: [0m3 == 11
+[1;31mFailed 9 test cases, failed 10 assertions.[0m
+

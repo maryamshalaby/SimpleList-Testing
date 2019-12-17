@@ -12,7 +12,7 @@ TEST_CASE( "Search", "[myLinkedList]" ) {
   });
 
   SECTION("Search in empty list") {
-    // REQUIRE( myLinkedList->search(0) == -1);
+    // REQUIRE_THROWS( myLinkedList->search(0) == -1);
   }
 
   SECTION("Search in non-empty list for existing value") {
