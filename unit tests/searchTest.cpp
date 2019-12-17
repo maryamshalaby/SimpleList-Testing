@@ -8,7 +8,8 @@ TEST_CASE( "Search", "[myLinkedList]" ) {
   myLinkedList->setCompare([](int &a, int &b) -> int {
     if(a < b) return -1;
     if(a == b) return 0;
-    if(a > b) return 1;  
+    if(a > b) return 1; 
+    return 0; 
   });
 
   SECTION("Search in empty list") {
@@ -19,7 +20,7 @@ TEST_CASE( "Search", "[myLinkedList]" ) {
     myLinkedList->add(5);
     REQUIRE( myLinkedList->search(5) == 0);
     myLinkedList->add(0);
-    REQUIRE( myLinkedList->search(NULL) == 1);
+    REQUIRE( myLinkedList->search(int()) == 1);
   }
 
   SECTION("Search in non-empty list for non-existing value") {
@@ -38,7 +39,8 @@ TEST_CASE( "SearchNext", "[myLinkedList]" ) {
   myLinkedList->setCompare([](int &a, int &b) -> int {
     if(a < b) return -1;
     if(a == b) return 0;
-    if(a > b) return 1;  
+    if(a > b) return 1; 
+    return 0; 
   });
 
   SECTION("SearchNext in empty list") {
@@ -69,7 +71,8 @@ TEST_CASE( "BinSearch", "[myLinkedList]" ) {
   myLinkedList->setCompare([](int &a, int &b) -> int {
     if(a < b) return -1;
     if(a == b) return 0;
-    if(a > b) return 1;  
+    if(a > b) return 1; 
+    return 0; 
   });
 
   SECTION("BinSearch in empty list") {
@@ -117,7 +120,8 @@ TEST_CASE( "Has", "[myLinkedList]" ) {
   myLinkedList->setCompare([](int &a, int &b) -> int {
     if(a < b) return -1;
     if(a == b) return 0;
-    if(a > b) return 1;  
+    if(a > b) return 1; 
+    return 0; 
   });
 
   SECTION("Has in empty list") {

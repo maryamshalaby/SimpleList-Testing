@@ -29,8 +29,8 @@ TEST_CASE("add single element", "[myLinkedList]")
     SimpleList<temp> *myLinkedList = new SimpleList<temp>();
     temp t(2);
     myLinkedList->add(t);
-    myLinkedList->add(NULL);
-    REQUIRE(myLinkedList->getLast() == NULL);
+    myLinkedList->add(temp());
+    REQUIRE(myLinkedList->getLast() == temp());
 }
 
 TEST_CASE("add multi element, check size", "[myLinkedList]")
@@ -119,6 +119,7 @@ TEST_CASE("insert at nonempty list", "[myLinkedList]")
             return 0;
         if (a > b)
             return 1;
+        return 0;
     });
     myLinkedList->insert(2);
     REQUIRE(myLinkedList->getFirst() == 2);

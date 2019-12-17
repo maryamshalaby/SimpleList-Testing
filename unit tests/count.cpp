@@ -14,6 +14,7 @@ TEST_CASE("count on empty list", "[myLinkedList]")
             return 0;
         if (a > b)
             return 1;
+        return 0;
     });
     REQUIRE(myLinkedList->count(1) == 0);
 }
@@ -28,6 +29,7 @@ TEST_CASE("count non existing element", "[myLinkedList]")
             return 0;
         if (a > b)
             return 1;
+        return 0;
     });
     myLinkedList->add(1);
     myLinkedList->add(2);
@@ -48,6 +50,7 @@ TEST_CASE("count existing element", "[myLinkedList]")
             return 0;
         if (a > b)
             return 1;
+        return 0;
     });
     myLinkedList->add(1);
     myLinkedList->add(2);

@@ -22,6 +22,7 @@ TEST_CASE("Test overloaded constructor", "[myLinkedList]")
             return 0;
         if (a > b)
             return 1;
+        return 0;
     });
     REQUIRE(myLinkedList->size() == 0);
 }
