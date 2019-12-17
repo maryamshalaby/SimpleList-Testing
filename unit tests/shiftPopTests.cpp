@@ -1,7 +1,7 @@
 #include "includes/catch.hpp"
 #include "../src/SimpleList.h"
 
-TEMPLATE_TEST_CASE( "shift first element out of", "shift" , int, float, bool, double) {
+TEMPLATE_TEST_CASE( "shift first element out of", "[shift]" , int, float, bool, double) {
 
     SimpleList<TestType> *myList = new SimpleList<TestType>();
 
@@ -28,7 +28,7 @@ TEMPLATE_TEST_CASE( "shift first element out of", "shift" , int, float, bool, do
     }
 
 }
-TEMPLATE_TEST_CASE( "pop last element out of", "pop",int, float, bool, double ) {
+TEMPLATE_TEST_CASE( "pop last element out of", "[pop]",int, float, bool, double ) {
 
     SimpleList<TestType> *myList = new SimpleList<TestType>();
 

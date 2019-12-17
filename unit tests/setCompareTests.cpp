@@ -3,7 +3,7 @@
 
 // our test cases
 
-TEST_CASE( "set Compare for a list of integers", "sort" ) {
+TEST_CASE( "set Compare for a list of integers", "[sort]" ) {
 
     SimpleList<int> *myList = new SimpleList<int>();
     myList->insert(7);

@@ -64,7 +64,7 @@ TEMPLATE_TEST_CASE( "Get last element from", "[get]",int, float, bool, double ) 
 }
 
 
-TEMPLATE_TEST_CASE( "Get element by index from", "get",int, float, bool, double ) {
+TEMPLATE_TEST_CASE( "Get element by index from", "[get]",int, float, bool, double ) {
     
     SimpleList<TestType> *myList = new SimpleList<TestType>();
 
@@ -90,7 +90,7 @@ TEMPLATE_TEST_CASE( "Get element by index from", "get",int, float, bool, double 
    
 }
 
-TEMPLATE_TEST_CASE( "Get element from list by setting", "get",int, float, bool, double ) {
+TEMPLATE_TEST_CASE( "Get element from list by setting", "[get]",int, float, bool, double ) {
 
     SimpleList<TestType> *myList = new SimpleList<TestType>();
 
