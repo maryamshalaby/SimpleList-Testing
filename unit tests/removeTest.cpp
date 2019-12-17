@@ -23,7 +23,7 @@ TEST_CASE( "remove(index): Empty List", "[tags]" ) {
     }
    SECTION( " Remove NULL index " ){
       // Try to remove L[NULL] = --
-        L.remove(NULL);
+        L.remove(int());
       // Now List is []
       REQUIRE(L.size() == 0);
    }
@@ -63,7 +63,7 @@ TEST_CASE( "remove(index): List with 1 element", "[tags]" ) {
     }
    SECTION( " Remove NULL index " ){
       // Try to remove L[-10] = --
-        L.remove(NULL);
+        L.remove(int());
       // Now List is []
       REQUIRE(L.size() == 1);
       REQUIRE(L.get(0) == 11);
@@ -138,7 +138,7 @@ TEST_CASE( "remove(index): List with multiple elements", "[tags]" ) {
    }
    SECTION( " Remove NULL index " ){
       // Try to remove L[NULL] = --
-        L.remove(NULL);
+        L.remove(int());
       // Now List is [11,-2,3,1]
       REQUIRE(L.size() == 4);
       REQUIRE(L.get(0) == 11);
