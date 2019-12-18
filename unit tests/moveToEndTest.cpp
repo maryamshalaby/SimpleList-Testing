@@ -17,14 +17,14 @@ TEST_CASE( "moveToEnd(): Empty List", "[tags]" ) {
  }
 
 // Test 2
-TEST_CASE( "moveToEnd(): List with 1 element", "[tags]" ) {
+TEST_CASE( "moveToEnd(): List with 1 element", "[.][segfault]" ) {
 
    // Now List is [11]
    SimpleList<int> L;
    L.insert(11);
 
    // Move L[0] = 11 to end
-  //  L.moveToEnd();
+   L.moveToEnd();
 
    // Now List is [11]
    REQUIRE(L.size() == 1);

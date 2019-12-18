@@ -111,7 +111,6 @@ TEST_CASE("insert at empty list", "[myLinkedList]")
 // Failed to sort inserted element
 TEST_CASE("insert at nonempty list", "[myLinkedList]")
 {
-    // SimpleList<int> *myLinkedList = new SimpleList<int>();
     SimpleList<int> *myLinkedList = new SimpleList<int>([](int &a, int &b) -> int {
         if (a < b)
             return -1;

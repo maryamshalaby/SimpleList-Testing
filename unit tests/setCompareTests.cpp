@@ -12,7 +12,7 @@ TEST_CASE("set Compare for a list of integers", "[sort]")
     myList->insert(3);
     myList->insert(3);
 
-    SECTION("to sort ascenddignly")
+    SECTION("to sort ascendignly")
     {
 
         myList->setCompare([](int &a, int &b) -> int {
@@ -30,7 +30,7 @@ TEST_CASE("set Compare for a list of integers", "[sort]")
         REQUIRE((myList->get(0) == 2 && myList->get(1) == 3 && myList->get(2) == 3 && myList->get(3) == 7));
     }
 
-    SECTION("to sort descendignly")
+    SECTION("to sort descendingly")
     {
 
         myList->setCompare([](int &a, int &b) -> int {

@@ -4,7 +4,7 @@
 
 // These tests is for "void swap(int x, int y)" that replaces value of specific element
 // Test 1
-TEST_CASE( "swap(int x, int y): Empty List", "[!mayfail]" ) {
+TEST_CASE( "swap(int x, int y): Empty List", "[swap]" ) {
 
    // Now List is []
    SimpleList<int> L;
@@ -16,14 +16,6 @@ TEST_CASE( "swap(int x, int y): Empty List", "[!mayfail]" ) {
       // Now List is []
          REQUIRE(L.size() == 0);
     }
-   //  SECTION( "Swap index doesn't exist in the List" ) {
-     
-   //    // Swap element in 0 with element in 2
-   //       L.swap(0,2);
-       
-   //    // Now List is []
-   //       REQUIRE(L.size() == 0);
-   //  }
     SECTION( "Swap negative x index" ) {
        // Swap element in -10 with element in 2
         L.swap(-10, 2);
@@ -50,6 +42,19 @@ TEST_CASE( "swap(int x, int y): Empty List", "[!mayfail]" ) {
     }
  }
 
+TEST_CASE( "swap(int x, int y): Empty List (SEGFAULT)","[.][segfault]"  ) {
+
+   // Now List is []
+   SimpleList<int> L;
+   SECTION( "Empty List :Swap index doesn't exist in the List") {
+      // Swap element in 0 with element in 2
+         L.swap(0,2);
+      
+      // Now List is []
+         REQUIRE(L.size() == 0);
+   }
+}
+
 // Test 2
 TEST_CASE( "swap(int x, int y): List with 1 element", "[tags]" ) {
 
@@ -66,32 +71,6 @@ TEST_CASE( "swap(int x, int y): List with 1 element", "[tags]" ) {
       REQUIRE(L.get(0) == 11);
       
      }
-
-   // SECTION( "Swap x index doesn't exist in the List" ) {
-   //     // L[5],L[0] = L[0],L[5]
-   //      L.swap(5,0);
-
-   //    // Now List is [11]
-   //       REQUIRE(L.size() == 1);
-   //       REQUIRE(L.get(0) == 11);
-
-   //   }
-   // SECTION( "Swap y index doesn't exist in the List" ) {
-   //     // L[5],L[2] = L[2],L[5]
-   //      L.swap(0, 5);
-
-   //    // Now List is [11]
-   //       REQUIRE(L.size() == 1);
-   //       REQUIRE(L.get(0) == 11);
-   //  }
-   // SECTION( "Swap both index not in the List" ) {
-   //     // L[5],L[8] = L[8],L[5]
-   //      L.swap(8, 5);
-
-   //    // Now List is [11]
-   //       REQUIRE(L.size() == 1);
-   //       REQUIRE(L.get(0) == 11);
-   //  }
     SECTION( "Swap x negative index" ) {
        // Try to replace L[-10] = --
         L.swap(-10,2);
@@ -115,21 +94,52 @@ TEST_CASE( "swap(int x, int y): List with 1 element", "[tags]" ) {
          REQUIRE(L.get(0) == 11);
     }
 
-   // SECTION( "Swap NULL x index " ){
-
-   //      L.swap(int(), 2);
-   //    // Now List is []
-   //       REQUIRE(L.size() == 1);
-   //       REQUIRE(L.get(0) == 11);
-   //  }
-   // SECTION( "Swap NULL y index " ){
-       
-   //      L.swap(2, int());
-   //    // Now List is []
-   //       REQUIRE(L.size() == 1);
-   //       REQUIRE(L.get(0) == 11);
-   //  }
+   
  }
+
+TEST_CASE( "swap(int x, int y): List with 1 element (SEG FAULT)", "[.][segfault]" ){
+   SimpleList<int> L;
+   L.insert(11); 
+  SECTION( "Swap x index doesn't exist in the List" ) {
+       // L[5],L[0] = L[0],L[5]
+        L.swap(5,0);
+
+      // Now List is [11]
+         REQUIRE(L.size() == 1);
+         REQUIRE(L.get(0) == 11);
+
+     }
+   SECTION( "Swap y index doesn't exist in the List" ) {
+       // L[5],L[2] = L[2],L[5]
+        L.swap(0, 5);
+
+      // Now List is [11]
+         REQUIRE(L.size() == 1);
+         REQUIRE(L.get(0) == 11);
+    }
+   SECTION( "Swap both index not in the List" ) {
+       // L[5],L[8] = L[8],L[5]
+        L.swap(8, 5);
+
+      // Now List is [11]
+         REQUIRE(L.size() == 1);
+         REQUIRE(L.get(0) == 11);
+    }
+    SECTION( "Swap NULL x index " ){
+
+        L.swap(int(), 2);
+      // Now List is []
+         REQUIRE(L.size() == 1);
+         REQUIRE(L.get(0) == 11);
+    }
+   SECTION( "Swap NULL y index " ){
+       
+        L.swap(2, int());
+      // Now List is []
+         REQUIRE(L.size() == 1);
+         REQUIRE(L.get(0) == 11);
+    }
+}
 
 // Test 3
 TEST_CASE( "swap(int x, int y): List with multiple elements", "[tags]" ) {
@@ -230,39 +240,7 @@ TEST_CASE( "swap(int x, int y): List with multiple elements", "[tags]" ) {
       REQUIRE(L.get(3) == 1);
     }
 
-   // SECTION( "Swap x index doesn't exist in the List" ) {
-   //     // L[5],L[2] = L[2],L[5]
-   //      L.swap(5,2);
-
-   //    // Now List is [11, -2, 3, 1]
-   //       REQUIRE(L.size() == 4);
-   //       REQUIRE(L.get(0) == 11);
-   //       REQUIRE(L.get(1) == -2);
-   //       REQUIRE(L.get(2) == 3);
-   //       REQUIRE(L.get(3) == 1);
-   //   }
-   // SECTION( "Swap y index doesn't exist in the List" ) {
-   //     // L[5],L[2] = L[2],L[5]
-   //      L.swap(2, 5);
-
-   //    // Now List is [11, -2, 3, 1]
-   //       REQUIRE(L.size() == 4);
-   //       REQUIRE(L.get(0) == 11);
-   //       REQUIRE(L.get(1) == -2);
-   //       REQUIRE(L.get(2) == 3);
-   //       REQUIRE(L.get(3) == 1);
-   //  }
-   // SECTION( "Swap both index not in the List" ) {
-   //     // L[5],L[8] = L[8],L[5]
-   //      L.swap(8, 5);
-
-   //    // Now List is [11, -2, 3, 1]
-   //       REQUIRE(L.size() == 4);
-   //       REQUIRE(L.get(0) == 11);
-   //       REQUIRE(L.get(1) == -2);
-   //       REQUIRE(L.get(2) == 3);
-   //       REQUIRE(L.get(3) == 1);
-   //  }
+  
    SECTION( "Swap x negative index" ) {
        // Swap L[-10] = --
         L.swap(-10,2);
@@ -316,5 +294,49 @@ TEST_CASE( "swap(int x, int y): List with multiple elements", "[tags]" ) {
          REQUIRE(L.get(3) == 1);
     }
  }
+
+TEST_CASE( "swap(int x, int y): List with multiple elements (SEGFAULT)", "[.][segfault]" ) {
+
+   // Now List is [11,-2,3,1]
+   SimpleList<int> L;
+   L.insert(11);
+   L.insert(-2);
+   L.insert(3);
+   L.insert(1);
+
+  SECTION( "Swap x index doesn't exist in the List" ) {
+       // L[5],L[2] = L[2],L[5]
+        L.swap(5,2);
+
+      // Now List is [11, -2, 3, 1]
+         REQUIRE(L.size() == 4);
+         REQUIRE(L.get(0) == 11);
+         REQUIRE(L.get(1) == -2);
+         REQUIRE(L.get(2) == 3);
+         REQUIRE(L.get(3) == 1);
+     }
+   SECTION( "Swap y index doesn't exist in the List" ) {
+       // L[5],L[2] = L[2],L[5]
+        L.swap(2, 5);
+
+      // Now List is [11, -2, 3, 1]
+         REQUIRE(L.size() == 4);
+         REQUIRE(L.get(0) == 11);
+         REQUIRE(L.get(1) == -2);
+         REQUIRE(L.get(2) == 3);
+         REQUIRE(L.get(3) == 1);
+    }
+   SECTION( "Swap both index not in the List" ) {
+       // L[5],L[8] = L[8],L[5]
+        L.swap(8, 5);
+
+      // Now List is [11, -2, 3, 1]
+         REQUIRE(L.size() == 4);
+         REQUIRE(L.get(0) == 11);
+         REQUIRE(L.get(1) == -2);
+         REQUIRE(L.get(2) == 3);
+         REQUIRE(L.get(3) == 1);
+    }
+}
 
 //////////////////////////////////////////////////////////

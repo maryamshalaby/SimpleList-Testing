@@ -3,7 +3,7 @@
 
 ////////////SEARCH//////////////
 
-TEST_CASE( "Search", "[myLinkedList]" ) {
+TEST_CASE( "Search", "[search]" ) {
   SimpleList<int> *myLinkedList = new SimpleList<int>();
   myLinkedList->setCompare([](int &a, int &b) -> int {
     if(a < b) return -1;
@@ -12,10 +12,7 @@ TEST_CASE( "Search", "[myLinkedList]" ) {
     return 0; 
   });
 
-  SECTION("Search in empty list") {
-    // REQUIRE_THROWS( myLinkedList->search(0) == -1);
-  }
-
+ 
   SECTION("Search in non-empty list for existing value") {
     myLinkedList->add(5);
     REQUIRE( myLinkedList->search(5) == 0);
@@ -23,10 +20,24 @@ TEST_CASE( "Search", "[myLinkedList]" ) {
     REQUIRE( myLinkedList->search(int()) == 1);
   }
 
-  SECTION("Search in non-empty list for non-existing value") {
-    myLinkedList->add(2);
-    // REQUIRE( myLinkedList->search(1) == -1);
-  }
+
+}
+
+TEST_CASE( "Search (SEGFAULT)", "[.][segfault]" ) {
+  SimpleList<int> *myLinkedList = new SimpleList<int>();
+  myLinkedList->setCompare([](int &a, int &b) -> int {
+    if(a < b) return -1;
+    if(a == b) return 0;
+    if(a > b) return 1; 
+    return 0; 
+  });
+    SECTION("Search in empty list") {
+      REQUIRE( myLinkedList->search(0) == -1);
+    }
+      SECTION("Search in non-empty list for non-existing value") {
+      myLinkedList->add(2);
+      REQUIRE( myLinkedList->search(1) == -1);
+    }
 }
 
 ///////////SEARCH_NEXT//////////////
@@ -34,7 +45,7 @@ TEST_CASE( "Search", "[myLinkedList]" ) {
 // searches for elements after (lastNodeGot)
 // if no function that sets (lastNodeGot) is called prior to calling search_next segmentation fault will occur 
 
-TEST_CASE( "SearchNext", "[myLinkedList]" ) {
+TEST_CASE( "SearchNext", "[search]" ) {
   SimpleList<int> *myLinkedList = new SimpleList<int>();
   myLinkedList->setCompare([](int &a, int &b) -> int {
     if(a < b) return -1;
@@ -43,9 +54,6 @@ TEST_CASE( "SearchNext", "[myLinkedList]" ) {
     return 0; 
   });
 
-  SECTION("SearchNext in empty list") {
-    //REQUIRE( myLinkedList->searchNext(1) == -1);
-  }
 
   SECTION("SearchNext in non-empty list for existing value") {
     myLinkedList->add(1);
@@ -56,11 +64,26 @@ TEST_CASE( "SearchNext", "[myLinkedList]" ) {
     REQUIRE( myLinkedList->searchNext(2) == 1);  
   }
 
-  SECTION("SearchNext in non-empty list for non-existing value") {
+}
+
+
+TEST_CASE( "SearchNext (SEGFAULT)", "[.][segfault]" ) {
+  SimpleList<int> *myLinkedList = new SimpleList<int>();
+  myLinkedList->setCompare([](int &a, int &b) -> int {
+    if(a < b) return -1;
+    if(a == b) return 0;
+    if(a > b) return 1; 
+    return 0; 
+  });
+
+  SECTION("SearchNext in empty list") {
+    REQUIRE( myLinkedList->searchNext(1) == -1);
+  }
+   SECTION("SearchNext in non-empty list for non-existing value") {
     myLinkedList->add(2);
 
     myLinkedList-> search(2);
-    //REQUIRE( myLinkedList->searchNext(1) == -1);
+    REQUIRE( myLinkedList->searchNext(1) == -1);
   }
 }
 
@@ -104,12 +127,25 @@ TEST_CASE( "BinSearch", "[myLinkedList]" ) {
     REQUIRE( myLinkedList->binSearch(1) == 1);
   }
 
+}
+
+
+TEST_CASE( "BinSearch (SEGFAULT)", "[.][segfault]" ) {
+  SimpleList<int> *myLinkedList = new SimpleList<int>();
+  myLinkedList->setCompare([](int &a, int &b) -> int {
+    if(a < b) return -1;
+    if(a == b) return 0;
+    if(a > b) return 1; 
+    return 0; 
+  });
+
+  
   SECTION("BinSearch in non-sorted list for non existing values") {
     myLinkedList->add(2);
     myLinkedList->add(1);
     
     // without sorting BinSearch is the same as regular search
-    // REQUIRE( myLinkedList->binSearch(3) == -1);
+    REQUIRE( myLinkedList->binSearch(3) == -1);
   }
 }
 
@@ -145,13 +181,25 @@ TEST_CASE( "Has", "[myLinkedList]" ) {
     REQUIRE( myLinkedList->has(3) == false);
   }
 
+}
+
+TEST_CASE( "Has (SEGFAULT)", "[.][segfault]"  ) {
+  SimpleList<int> *myLinkedList = new SimpleList<int>();
+  myLinkedList->setCompare([](int &a, int &b) -> int {
+    if(a < b) return -1;
+    if(a == b) return 0;
+    if(a > b) return 1; 
+    return 0; 
+  });
+
   SECTION("Has in non-sorted list for non existing values") {
     myLinkedList->add(2);
     myLinkedList->add(1);
     
-    // REQUIRE( myLinkedList->has(3) == false);
-  }
+    REQUIRE( myLinkedList->has(3) == false);
+   }
 }
+
 
 
 
